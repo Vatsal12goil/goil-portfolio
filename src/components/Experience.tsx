@@ -1,0 +1,99 @@
+
+import { Briefcase, Calendar, MapPin } from "lucide-react";
+
+const Experience = () => {
+  const experiences = [
+    {
+      company: "Brainwave Matrix Solution",
+      role: "Cybersecurity Intern",
+      duration: "2024",
+      location: "Remote",
+      projects: ["Password Strength Checker", "Phishing Scanner"],
+      color: "from-red-400 to-pink-400",
+    },
+    {
+      company: "TechnoHacks Solutions",
+      role: "Cybersecurity Intern",
+      duration: "2024",
+      location: "Remote",
+      projects: ["Nmap Network Scanning", "Wireshark Analysis", "Ethical Hacking Concepts"],
+      color: "from-blue-400 to-cyan-400",
+    },
+    {
+      company: "Pinnacle Labs",
+      role: "Web Development Intern",
+      duration: "2024",
+      location: "Remote",
+      projects: ["Weather Application", "Calculator", "Currency Converter"],
+      color: "from-green-400 to-emerald-400",
+    },
+    {
+      company: "Infosys Springboard",
+      role: "Student Developer",
+      duration: "2023-2024",
+      location: "Online",
+      projects: ["HTML/CSS Capstone Projects", "Web Development Fundamentals"],
+      color: "from-purple-400 to-indigo-400",
+    },
+  ];
+
+  return (
+    <section id="experience" className="py-20 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Experience
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
+        </div>
+
+        <div className="space-y-8">
+          {experiences.map((exp, index) => (
+            <div
+              key={exp.company}
+              className="bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all duration-300 group"
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                <div className="flex items-center mb-4 md:mb-0">
+                  <div className={`p-3 rounded-lg bg-gradient-to-r ${exp.color} mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <Briefcase className="text-white" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-white">{exp.role}</h3>
+                    <p className="text-lg text-slate-300">{exp.company}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                  <div className="flex items-center text-slate-400">
+                    <Calendar size={16} className="mr-2" />
+                    {exp.duration}
+                  </div>
+                  <div className="flex items-center text-slate-400">
+                    <MapPin size={16} className="mr-2" />
+                    {exp.location}
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-3">Key Projects & Achievements:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {exp.projects.map((project) => (
+                    <span
+                      key={project}
+                      className={`px-4 py-2 bg-gradient-to-r ${exp.color} bg-opacity-20 text-slate-300 rounded-full text-sm border border-slate-600`}
+                    >
+                      {project}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
