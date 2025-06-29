@@ -18,9 +18,9 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="mb-8">
           <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+            src="/lovable-uploads/9cd0c6c5-eb3c-41d3-b122-e49396a7f8d8.png"
             alt="Vatsal Goil"
-            className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-gradient-to-r from-blue-400 to-purple-400 shadow-2xl"
+            className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-gradient-to-r from-blue-400 to-purple-400 shadow-2xl object-cover"
           />
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
             Vatsal Goil
