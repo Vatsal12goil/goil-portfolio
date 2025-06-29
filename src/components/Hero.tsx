@@ -8,6 +8,10 @@ const Hero = () => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const openResume = () => {
+    window.open("/lovable-uploads/8c7aecfd-411f-4f12-8f43-17a914b1cc89.png", "_blank");
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Elements */}
@@ -35,17 +39,17 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button
-            onClick={() => scrollToSection("#projects")}
+            onClick={() => scrollToSection("#contact")}
             className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
           >
-            View Projects
+            Let's Connect
           </Button>
           <Button
-            onClick={() => scrollToSection("#contact")}
+            onClick={openResume}
             variant="outline"
             className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-3 text-lg font-semibold transition-all duration-300"
           >
-            Contact Me
+            View Resume
           </Button>
         </div>
 
