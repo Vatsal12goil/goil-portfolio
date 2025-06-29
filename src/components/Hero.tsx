@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   const openResume = () => {
-    window.open("/lovable-uploads/8c7aecfd-411f-4f12-8f43-17a914b1cc89.png", "_blank");
+    window.open("/lovable-uploads/59c18da4-5652-4a38-a631-ff3212a78cbf.png", "_blank");
   };
 
   return (
