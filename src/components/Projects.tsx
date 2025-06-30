@@ -10,7 +10,7 @@ const Projects = () => {
       tech: ["Python", "Flask", "HTML/CSS", "JavaScript"],
       icon: Shield,
       color: "from-red-400 to-pink-400",
-      github: "#",
+      github: "https://github.com/Vatsal12goil/Phising_Scanner",
       demo: "#",
     },
     {
@@ -28,7 +28,7 @@ const Projects = () => {
       tech: ["JavaScript", "API Integration", "HTML/CSS"],
       icon: Cloud,
       color: "from-blue-400 to-cyan-400",
-      github: "#",
+      github: "https://github.com/Vatsal12goil/Weather_app",
       demo: "#",
     },
     {
@@ -83,6 +83,8 @@ const Projects = () => {
                   variant="outline"
                   size="sm"
                   className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white"
+                  onClick={() => project.github !== "#" && window.open(project.github, "_blank")}
+                  disabled={project.github === "#"}
                 >
                   <Github size={16} className="mr-2" />
                   Code
