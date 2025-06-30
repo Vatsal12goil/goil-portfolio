@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github, Shield, Globe, Calculator, Cloud } from "lucide-react";
+import { ExternalLink, Github, Shield, Globe, Lock, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Projects = () => {
@@ -32,11 +32,20 @@ const Projects = () => {
       demo: "#",
     },
     {
-      title: "Advanced Calculator",
-      description: "A feature-rich calculator application with scientific functions and a modern UI. Built during web development internship with focus on user experience.",
-      tech: ["JavaScript", "HTML/CSS", "Responsive Design"],
-      icon: Calculator,
+      title: "Password Strength Checker",
+      description: "Developed a real-time Password Strength Checker web application to assess the strength of user-entered passwords based on various criteria. The project enhances user security awareness by visually indicating password robustness. Internship Project at: Brainwave Matrix Solution",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      icon: Lock,
       color: "from-purple-400 to-indigo-400",
+      github: "#",
+      demo: "#",
+    },
+    {
+      title: "Currency Converter",
+      description: "Created a Currency Converter web application that allows users to convert values between different currencies using real-time or fixed exchange rates. The project focuses on improving practical JavaScript skills and designing an intuitive user interface.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      icon: DollarSign,
+      color: "from-yellow-400 to-orange-400",
       github: "#",
       demo: "#",
     },
