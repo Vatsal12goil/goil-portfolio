@@ -29,7 +29,7 @@ const Projects = () => {
       icon: Cloud,
       color: "from-blue-400 to-cyan-400",
       github: "https://github.com/Vatsal12goil/Weather_app",
-      demo: "#",
+      demo: "https://weatherapp1216.netlify.app",
     },
     {
       title: "Password Strength Checker",
@@ -37,8 +37,8 @@ const Projects = () => {
       tech: ["HTML5", "CSS3", "JavaScript"],
       icon: Lock,
       color: "from-purple-400 to-indigo-400",
-      github: "#",
-      demo: "#",
+      github: "https://github.com/Vatsal12goil/Password_checker",
+      demo: "https://beamish-puppy-d87b95.netlify.app",
     },
     {
       title: "Currency Converter",
@@ -101,6 +101,8 @@ const Projects = () => {
                 <Button
                   size="sm"
                   className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white`}
+                  onClick={() => project.demo !== "#" && window.open(project.demo, "_blank")}
+                  disabled={project.demo === "#"}
                 >
                   <ExternalLink size={16} className="mr-2" />
                   Live Demo
