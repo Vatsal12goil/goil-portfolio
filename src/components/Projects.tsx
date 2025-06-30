@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github, Shield, Globe, Lock, DollarSign } from "lucide-react";
+import { ExternalLink, Github, Shield, Globe, Lock, DollarSign, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Projects = () => {
