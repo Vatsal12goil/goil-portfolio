@@ -16,13 +16,14 @@ const About = () => {
           <div className="space-y-6">
             <div className="bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Motivated and detail-oriented Computer Science undergraduate with a strong foundation in database management (SQL) and full-stack web development 
-                using HTML, CSS, JavaScript, Node.js, and Python. Passionate about cybersecurity and cryptography, with hands-on experience in network scanning tools 
-                such as Wireshark and Nmap.
+                I'm Vatsal Goil from Kanpur, currently pursuing B.Tech in Cybersecurity at PSIT, Kanpur. 
+                I'm passionate about technology, cybersecurity, and creative exploration. My journey in tech 
+                has been driven by curiosity and a desire to build secure, innovative solutions.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed">
-                Demonstrates a continuous learning mindset and a commitment to building secure, scalable, and efficient software solutions. 
-                Eager to leverage technical skills and creativity to contribute meaningfully to innovative projects and real-world problem-solving.
+                In my free time, I enjoy chess, cricket, and diving into mythology, astronomy, and history. 
+                This diverse range of interests helps me approach problems from unique perspectives and 
+                fuels my creativity in both cybersecurity and web development.
               </p>
             </div>
           </div>
@@ -35,16 +36,11 @@ const About = () => {
               </div>
               <div className="space-y-4">
                 <div className="border-l-2 border-blue-400 pl-4">
-                  <h4 className="font-semibold text-white">B-Tech in Computer Science (CyberSecurity)</h4>
-                  <p className="text-slate-400">Punjabi University Singh Institute Of Technology, Kanpur, India</p>
-                  <p className="text-slate-300 text-sm">2022-2026 • Current Aggregate: 60.7%</p>
+                  <h4 className="font-semibold text-white">B.Tech in Cybersecurity</h4>
+                  <p className="text-slate-400">PSIT, Kanpur • 2022-2026</p>
                 </div>
                 <div className="border-l-2 border-purple-400 pl-4">
-                  <h4 className="font-semibold text-white">Intermediate 70%</h4>
-                  <p className="text-slate-400">Shree Sanatan Dharm Education Center • 2020-2022</p>
-                </div>
-                <div className="border-l-2 border-green-400 pl-4">
-                  <h4 className="font-semibold text-white">High School 90%</h4>
+                  <h4 className="font-semibold text-white">10+2</h4>
                   <p className="text-slate-400">Shree Sanatan Dharm Education Center</p>
                 </div>
               </div>

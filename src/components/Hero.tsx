@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   const openResume = () => {
-    window.open("/lovable-uploads/8398470e-be79-4175-91be-4dddff0963fc.png", "_blank");
+    window.open("/lovable-uploads/59c18da4-5652-4a38-a631-ff3212a78cbf.png", "_blank");
   };
 
   return (
@@ -30,10 +30,10 @@ const Hero = () => {
             Vatsal Goil
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 mb-2">
-            Computer Science Student | Cybersecurity Enthusiast | Web Developer
+            Cybersecurity Enthusiast | Web Developer | Explorer of Knowledge
           </p>
           <p className="text-lg text-slate-400 mb-8">
-            B.Tech Student at Punjabi University Singh Institute Of Technology, Kanpur • Graduating 2026
+            B.Tech Student at PSIT Kanpur • Graduating 2026
           </p>
         </div>
 
