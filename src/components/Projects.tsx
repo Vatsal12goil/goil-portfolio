@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 const Projects = () => {
   const projects = [
     {
-      title: "Phishing Link Scanner",
-      description: "A comprehensive security tool that detects malicious URLs using Flask (Python) with a clean, intuitive frontend. Helps users stay safe online by analyzing suspicious links.",
-      tech: ["Python", "Flask", "HTML/CSS", "JavaScript"],
+      title: "Vehicle Tracking System",
+      description: "An intelligent real-time vehicle monitoring platform that leverages GPS technology and IoT sensors to provide comprehensive fleet management solutions. Features live location tracking, route optimization, driver behavior analysis, and automated alerts for enhanced operational efficiency and security.",
+      tech: ["React", "Node.js", "MongoDB", "GPS API", "Socket.io"],
       icon: Shield,
-      color: "from-red-400 to-pink-400",
-      github: "https://github.com/Vatsal12goil/Phising_Scanner",
+      color: "from-blue-500 to-teal-500",
+      github: "#",
       demo: "#",
     },
     {
