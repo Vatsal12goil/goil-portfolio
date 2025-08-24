@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   const openResume = () => {
-    window.open("/lovable-uploads/59c18da4-5652-4a38-a631-ff3212a78cbf.png", "_blank");
+    window.open("/lovable-uploads/latest-resume-vatsal-goil.png", "_blank");
   };
 
   return (
