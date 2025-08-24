@@ -4,35 +4,25 @@ import { Briefcase, Calendar, MapPin, Award } from "lucide-react";
 const Experience = () => {
   const experiences = [
     {
-      company: "Brainwave Matrix Solution",
-      role: "Cybersecurity & Ethical Hacking Intern",
-      duration: "Feb 2025 - Mar 2025 (1 Month)",
-      location: "Remote",
-      projects: ["Password Strength Checker", "Phishing Scanner", "Network Security Analysis"],
-      color: "from-blue-400 to-cyan-400",
-      certificate: "/lovable-uploads/a025095e-42b2-41bf-82c8-7874778b0b0b.png",
-      description: "Successfully completed 1-month internship with outstanding remarks, focusing on cybersecurity and ethical hacking concepts."
-    },
-    {
-      company: "TechnoHacks Solutions",
-      role: "Cybersecurity & Digital Forensics Intern",
-      duration: "Mar 2025 - Apr 2025 (1 Month)",
-      location: "Remote",
-      projects: ["Nmap Network Scanning", "Wireshark Analysis", "Digital Forensics Investigation"],
-      color: "from-purple-400 to-pink-400",
-      certificate: "/lovable-uploads/5b710e69-0f39-49f5-86a4-65a607e3680e.png",
-      description: "Completed internship in Cybersecurity & Digital Forensics with consistent and hardworking performance."
-    },
-    {
       company: "Pinnacle Labs",
-      role: "Web Development Intern",
-      duration: "Nov 2024 - Dec 2024 (4 weeks)",
+      role: "IT Intern",
+      duration: "Nov 4, 2024 - Dec 3, 2024",
       location: "Remote",
-      projects: ["Weather Application", "Calculator", "Currency Converter"],
-      color: "from-green-400 to-emerald-400",
+      projects: ["Weather Application", "Currency Converter", "Web Applications Development"],
+      color: "from-blue-400 to-cyan-400",
       certificate: "/lovable-uploads/82609dcd-949a-428d-9eba-a9538f96966f.png",
-      description: "Demonstrated exceptional dedication and skill during virtual internship with commendable performance."
+      description: "Developed and optimized web applications, including a Weather Application and Currency Converter. Gained hands-on experience in API integration and front-end development using JavaScript, HTML, and CSS. Worked on improving UI/UX design for enhanced user experience."
     },
+    {
+      company: "Brainwave Matrix Solutions",
+      role: "IT Intern",
+      duration: "Feb 5, 2025 - March 14, 2025",
+      location: "Remote",
+      projects: ["Phishing Scanner", "Password Strength Checker", "Cybersecurity Solutions"],
+      color: "from-purple-400 to-pink-400",
+      certificate: "/lovable-uploads/a025095e-42b2-41bf-82c8-7874778b0b0b.png",
+      description: "Led the development of a Phishing Scanner and Password Strength Checker, focusing on cybersecurity solutions. Worked with Python (Flask) and JavaScript to create robust security tools. Enhanced security algorithms for improved detection accuracy."
+    }
   ];
 
   return (
