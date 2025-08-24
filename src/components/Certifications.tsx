@@ -1,5 +1,5 @@
 
-import { Award, Shield, Database, Code, Globe, FileText } from "lucide-react";
+import { Award, Shield, Database, Code, Globe, FileText, Brain, BarChart3 } from "lucide-react";
 
 const Certifications = () => {
   const certifications = [
@@ -66,6 +66,30 @@ const Certifications = () => {
       color: "from-red-400 to-pink-400",
       description: "Cybersecurity fundamentals and best practices",
       image: "/lovable-uploads/82f62261-69b1-45b4-9488-d40b5d8fa2f1.png"
+    },
+    {
+      title: "Getting Started with Cybersecurity",
+      issuer: "IBM SkillsBuild",
+      icon: Shield,
+      color: "from-blue-600 to-blue-400",
+      description: "Professional cybersecurity foundations and security principles",
+      image: "/lovable-uploads/b97534e7-e49d-4de2-9547-4adc2abd356b.png"
+    },
+    {
+      title: "Getting Started with Microsoft Excel",
+      issuer: "Coursera Project Network",
+      icon: BarChart3,
+      color: "from-green-500 to-emerald-400",
+      description: "Excel fundamentals and data analysis techniques",
+      image: "/lovable-uploads/c8caced7-e2f7-4751-adaa-aaa264c4d928.png"
+    },
+    {
+      title: "What Is Generative AI?",
+      issuer: "LinkedIn Learning",
+      icon: Brain,
+      color: "from-violet-500 to-purple-400",
+      description: "Understanding generative AI concepts and applications",
+      image: "/lovable-uploads/276c8d06-08de-4a90-80de-a3837187a1d8.png"
     }
   ];
 
