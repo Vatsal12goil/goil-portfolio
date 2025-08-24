@@ -49,6 +49,15 @@ const Projects = () => {
       github: "#",
       demo: "#",
     },
+    {
+      title: "ResQ - Women Safety Platform",
+      description: "An innovative final year project addressing the critical issue of domestic violence through technology. ResQ provides a comprehensive digital safety net featuring emergency SOS alerts, secure location sharing with trusted contacts, anonymous reporting mechanisms, and AI-powered threat assessment. The platform integrates mental health resources, legal guidance, and connects victims with support networks to create a holistic protection ecosystem.",
+      tech: ["React Native", "Firebase", "Machine Learning", "Geolocation API", "Real-time DB"],
+      icon: Shield,
+      color: "from-pink-500 to-rose-500",
+      github: "#",
+      demo: "#",
+    },
   ];
 
   return (
