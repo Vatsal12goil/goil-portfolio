@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   const openResume = () => {
-    window.open("/lovable-uploads/latest-resume-vatsal-goil.png", "_blank");
+    window.open("https://1drv.ms/b/c/1ad62e9322aeefa7/EahOsWnhpjZImTFxUKUVtn0BAWBbyUf0soChkpAbyQMy3Q", "_blank");
   };
 
   return (
