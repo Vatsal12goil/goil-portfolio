@@ -59,10 +59,10 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className="bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all duration-300 group"
+              className="bg-slate-800/30 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 hover:border-slate-600/70 transition-all duration-500 group hover:transform hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10"
             >
               <div className="flex items-center mb-6">
-                <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} mr-4`}>
+                <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} mr-4 group-hover:scale-110 transition-transform duration-300`}>
                   <category.icon className="text-white" size={24} />
                 </div>
                 <h3 className="text-2xl font-semibold text-white">{category.title}</h3>
@@ -77,7 +77,7 @@ const Skills = () => {
                     </div>
                     <div className="w-full bg-slate-700 rounded-full h-2">
                       <div
-                        className={`h-2 rounded-full bg-gradient-to-r ${category.color} transition-all duration-1000 group-hover:animate-pulse`}
+                        className={`h-2 rounded-full bg-gradient-to-r ${category.color} transition-all duration-1000 group-hover:animate-pulse group-hover:shadow-lg`}
                         style={{ width: `${skill.level}%` }}
                       ></div>
                     </div>
