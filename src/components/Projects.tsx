@@ -96,12 +96,12 @@ const Projects = () => {
                 ))}
               </div>
 
-              <div className="flex space-x-4">
+              <div className="flex gap-4">
                 {project.github && project.github !== "#" && (
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white"
+                    className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white flex-1"
                     onClick={() => window.open(project.github, "_blank")}
                   >
                     <Github size={16} className="mr-2" />
@@ -111,7 +111,7 @@ const Projects = () => {
                 {project.demo && project.demo !== "#" && project.demo !== "" && (
                   <Button
                     size="sm"
-                    className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white`}
+                    className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white flex-1`}
                     onClick={() => window.open(project.demo, "_blank")}
                   >
                     <ExternalLink size={16} className="mr-2" />
