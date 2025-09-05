@@ -10,8 +10,8 @@ const Projects = () => {
       tech: ["React", "Node.js", "MongoDB", "GPS API", "Socket.io"],
       icon: Shield,
       color: "from-blue-500 to-teal-500",
-      github: "#",
-      demo: "#",
+      github: "https://github.com/Vatsal12goil/vehicle-tracking-system",
+      demo: "",
     },
     {
       title: "Trash Trade Marketplace",
@@ -19,8 +19,8 @@ const Projects = () => {
       tech: ["Node.js", "HTML/CSS", "JavaScript", "Database"],
       icon: Globe,
       color: "from-green-400 to-emerald-400",
-      github: "#",
-      demo: "#",
+      github: "https://github.com/Vatsal12goil/TTM2",
+      demo: "https://vatsal12goil.github.io/TTM2/",
     },
     {
       title: "Weather Application",
@@ -46,7 +46,7 @@ const Projects = () => {
       tech: ["HTML5", "CSS3", "JavaScript"],
       icon: DollarSign,
       color: "from-yellow-400 to-orange-400",
-      github: "#",
+      github: "https://github.com/Vatsal12goil/Currency_Con",
       demo: "#",
     },
     {
@@ -97,25 +97,27 @@ const Projects = () => {
               </div>
 
               <div className="flex space-x-4">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white"
-                  onClick={() => project.github !== "#" && window.open(project.github, "_blank")}
-                  disabled={project.github === "#"}
-                >
-                  <Github size={16} className="mr-2" />
-                  Code
-                </Button>
-                <Button
-                  size="sm"
-                  className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white`}
-                  onClick={() => project.demo !== "#" && window.open(project.demo, "_blank")}
-                  disabled={project.demo === "#"}
-                >
-                  <ExternalLink size={16} className="mr-2" />
-                  Live Demo
-                </Button>
+                {project.github && project.github !== "#" && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white"
+                    onClick={() => window.open(project.github, "_blank")}
+                  >
+                    <Github size={16} className="mr-2" />
+                    Code
+                  </Button>
+                )}
+                {project.demo && project.demo !== "#" && project.demo !== "" && (
+                  <Button
+                    size="sm"
+                    className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white`}
+                    onClick={() => window.open(project.demo, "_blank")}
+                  >
+                    <ExternalLink size={16} className="mr-2" />
+                    Live Demo
+                  </Button>
+                )}
               </div>
             </div>
           ))}
