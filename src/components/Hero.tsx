@@ -23,7 +23,7 @@ const Hero = () => {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="mb-8">
-          <div className="relative inline-block mb-6">
+          <div className="relative inline-block mb-8">
             {/* Multiple Dynamic Glowing Rings */}
             {/* Outer Ring - Clockwise */}
             <div className="absolute inset-0 w-48 h-48 mx-auto rounded-full border-2 border-transparent border-t-cyan-400 border-r-cyan-400 animate-spin opacity-80 shadow-lg shadow-cyan-400/50" style={{animationDuration: '4s', left: '-32px', top: '-32px'}}></div>
