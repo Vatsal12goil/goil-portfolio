@@ -5,7 +5,7 @@ const TypingEffect = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   
-  const fullText = "Lets explore new technologies 👨‍💻🌐";
+  const fullText = "Let's explore new technologies 👨‍💻🌐";
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,9 +31,9 @@ const TypingEffect = () => {
 
   return (
     <div className="text-center mb-8">
-      <p className="text-lg text-slate-300 font-mono">
+      <p className="text-xl md:text-2xl font-mono bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
         {displayText}
-        <span className="animate-pulse">_</span>
+        <span className="animate-pulse bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">_</span>
       </p>
     </div>
   );
