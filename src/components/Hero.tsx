@@ -1,6 +1,7 @@
 
 import { ChevronDown, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import TypingEffect from "./TypingEffect";
 
 const Hero = () => {
   const scrollToSection = (href: string) => {
@@ -22,11 +23,17 @@ const Hero = () => {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="mb-8">
-          <img
-            src="/lovable-uploads/9cd0c6c5-eb3c-41d3-b122-e49396a7f8d8.png"
-            alt="Vatsal Goil"
-            className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-gradient-to-r from-blue-400 to-purple-400 shadow-2xl object-cover hover:scale-110 transition-transform duration-300 hover:shadow-blue-500/50"
-          />
+          <div className="relative inline-block">
+            {/* Spinning Ring Animation */}
+            <div className="absolute inset-0 w-32 h-32 mx-auto mb-6 rounded-full border-4 border-transparent border-t-cyan-400 border-r-teal-400 animate-spin" style={{animationDuration: '2s'}}></div>
+            <div className="absolute inset-0 w-32 h-32 mx-auto mb-6 rounded-full border-4 border-transparent border-b-blue-400 border-l-emerald-400 animate-spin" style={{animationDuration: '3s', animationDirection: 'reverse'}}></div>
+            
+            <img
+              src="/lovable-uploads/9cd0c6c5-eb3c-41d3-b122-e49396a7f8d8.png"
+              alt="Vatsal Goil"
+              className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-slate-700 shadow-2xl object-cover hover:scale-110 transition-transform duration-300 hover:shadow-cyan-500/50 relative z-10"
+            />
+          </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
             Vatsal Goil
           </h1>
@@ -84,6 +91,8 @@ const Hero = () => {
             <Github size={24} />
           </a>
         </div>
+
+        <TypingEffect />
 
         <div className="animate-bounce">
           <button
