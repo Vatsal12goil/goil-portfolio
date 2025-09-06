@@ -26,24 +26,24 @@ const Hero = () => {
           <div className="relative inline-block mb-6">
             {/* Multiple Dynamic Glowing Rings */}
             {/* Outer Ring - Clockwise */}
-            <div className="absolute inset-0 w-48 h-48 mx-auto rounded-full border-2 border-transparent border-t-cyan-400 border-r-cyan-400 animate-spin opacity-80 shadow-lg shadow-cyan-400/50" style={{animationDuration: '4s', left: '-32px', top: '-32px'}}></div>
-            <div className="absolute inset-0 w-48 h-48 mx-auto rounded-full border-2 border-transparent border-b-teal-400 border-l-teal-400 animate-spin opacity-60 shadow-lg shadow-teal-400/50" style={{animationDuration: '5s', left: '-32px', top: '-32px'}}></div>
+            <div className="absolute inset-0 w-48 h-48 mx-auto rounded-full border-2 border-transparent border-t-indigo-500 border-r-purple-500 animate-spin opacity-40 shadow-lg shadow-indigo-500/30" style={{animationDuration: '4s', left: '-32px', top: '-32px'}}></div>
+            <div className="absolute inset-0 w-48 h-48 mx-auto rounded-full border-2 border-transparent border-b-violet-500 border-l-blue-600 animate-spin opacity-30 shadow-lg shadow-violet-500/30" style={{animationDuration: '5s', left: '-32px', top: '-32px'}}></div>
             
             {/* Middle Ring - Anti-clockwise */}
-            <div className="absolute inset-0 w-40 h-40 mx-auto rounded-full border-2 border-transparent border-t-blue-400 border-r-blue-400 animate-spin opacity-90 shadow-md shadow-blue-400/60" style={{animationDuration: '3s', animationDirection: 'reverse', left: '-16px', top: '-16px'}}></div>
-            <div className="absolute inset-0 w-40 h-40 mx-auto rounded-full border-2 border-transparent border-b-emerald-400 border-l-emerald-400 animate-spin opacity-70 shadow-md shadow-emerald-400/60" style={{animationDuration: '3.5s', animationDirection: 'reverse', left: '-16px', top: '-16px'}}></div>
+            <div className="absolute inset-0 w-40 h-40 mx-auto rounded-full border-2 border-transparent border-t-blue-500 border-r-indigo-600 animate-spin opacity-50 shadow-md shadow-blue-500/40" style={{animationDuration: '3s', animationDirection: 'reverse', left: '-16px', top: '-16px'}}></div>
+            <div className="absolute inset-0 w-40 h-40 mx-auto rounded-full border-2 border-transparent border-b-purple-600 border-l-violet-600 animate-spin opacity-40 shadow-md shadow-purple-600/40" style={{animationDuration: '3.5s', animationDirection: 'reverse', left: '-16px', top: '-16px'}}></div>
             
             {/* Inner Ring - Clockwise Fast */}
-            <div className="absolute inset-0 w-36 h-36 mx-auto rounded-full border-2 border-transparent border-t-purple-400 border-r-purple-400 animate-spin opacity-100 shadow-sm shadow-purple-400/70" style={{animationDuration: '2s', left: '-8px', top: '-8px'}}></div>
-            <div className="absolute inset-0 w-36 h-36 mx-auto rounded-full border-2 border-transparent border-b-pink-400 border-l-pink-400 animate-spin opacity-80 shadow-sm shadow-pink-400/70" style={{animationDuration: '2.5s', left: '-8px', top: '-8px'}}></div>
+            <div className="absolute inset-0 w-36 h-36 mx-auto rounded-full border-2 border-transparent border-t-indigo-400 border-r-blue-500 animate-spin opacity-60 shadow-sm shadow-indigo-400/50" style={{animationDuration: '2s', left: '-8px', top: '-8px'}}></div>
+            <div className="absolute inset-0 w-36 h-36 mx-auto rounded-full border-2 border-transparent border-b-purple-500 border-l-violet-500 animate-spin opacity-50 shadow-sm shadow-purple-500/50" style={{animationDuration: '2.5s', left: '-8px', top: '-8px'}}></div>
             
             {/* Innermost Glow Ring */}
-            <div className="absolute inset-0 w-32 h-32 mx-auto rounded-full border border-cyan-300/30 animate-pulse shadow-xl shadow-cyan-300/50"></div>
+            <div className="absolute inset-0 w-32 h-32 mx-auto rounded-full border border-indigo-400/20 animate-pulse shadow-xl shadow-indigo-400/30"></div>
             
             <img
               src="/lovable-uploads/9cd0c6c5-eb3c-41d3-b122-e49396a7f8d8.png"
               alt="Vatsal Goil"
-              className="w-32 h-32 rounded-full mx-auto border-4 border-slate-700/50 shadow-2xl object-cover hover:scale-110 transition-transform duration-300 hover:shadow-cyan-500/50 relative z-10 shadow-cyan-400/30"
+              className="w-32 h-32 rounded-full mx-auto border-4 border-slate-700/50 shadow-2xl object-cover hover:scale-110 transition-transform duration-300 hover:shadow-indigo-500/50 relative z-10 shadow-indigo-400/30"
             />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
