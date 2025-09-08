@@ -13,13 +13,13 @@ const Projects = () => {
   const projects = [
     {
       title: "Vehicle Tracking System",
-      description: "An intelligent real-time vehicle monitoring platform that leverages GPS technology and IoT sensors to provide comprehensive fleet management solutions. Features live location tracking, route optimization, driver behavior analysis, and automated alerts for enhanced operational efficiency and security.",
+      description: "An intelligent real-time vehicle monitoring platform that leverages GPS technology and IoT sensors to provide comprehensive fleet management solutions. Features live location tracking, route optimization, and driver behavior analysis.",
       tech: ["React", "Node.js", "MongoDB", "GPS API", "Socket.io"],
       icon: Shield,
       color: "from-blue-500 to-teal-500",
       github: "https://github.com/Vatsal12goil/vehicle-tracking-system",
       demo: "",
-      image: null,
+      image: "/project-images/under-construction.png",
     },
     {
       title: "Trash Trade Marketplace",
@@ -59,17 +59,17 @@ const Projects = () => {
       color: "from-yellow-400 to-orange-400",
       github: "https://github.com/Vatsal12goil/Currency_Con",
       demo: "#",
-      image: "/lovable-uploads/23f85a54-a592-4306-b702-04fa39c6ec6d.png",
+      image: "/lovable-uploads/443eef5c-2c22-4be0-81ab-681b3cc6bea5.png",
     },
     {
       title: "ResQ - Women Safety Platform",
-      description: "An innovative final year project addressing the critical issue of domestic violence through technology. ResQ provides a comprehensive digital safety net featuring emergency SOS alerts, secure location sharing with trusted contacts, anonymous reporting mechanisms, and AI-powered threat assessment. The platform integrates mental health resources, legal guidance, and connects victims with support networks to create a holistic protection ecosystem.",
-      tech: ["React Native", "Firebase", "Machine Learning", "Geolocation API", "Real-time DB"],
+      description: "An innovative final year project addressing the critical issue of domestic violence through technology. ResQ provides a comprehensive digital safety net featuring emergency SOS alerts, secure location sharing with trusted contacts, anonymous reporting mechanisms, and AI-powered threat assessment.",
+      tech: ["React Native", "Firebase", "ML", "Geolocation", "Real-time DB"],
       icon: Shield,
       color: "from-pink-500 to-rose-500",
       github: "#",
       demo: "#",
-      image: null,
+      image: "/project-images/under-construction.png",
     },
   ];
 
@@ -108,43 +108,43 @@ const Projects = () => {
 
                   <p className="text-slate-300 mb-6 leading-relaxed">{project.description}</p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-6 max-h-16 overflow-hidden">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-sm border border-slate-600"
+                        className="px-2 py-1 bg-slate-700 text-slate-300 rounded-full text-xs border border-slate-600"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-2 flex-wrap">
                     {project.github && project.github !== "#" && (
                       <Button
                         variant="outline"
                         size="sm"
-                        className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white flex-1"
+                        className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white flex-1 min-w-0"
                         onClick={(e) => {
                           e.stopPropagation();
                           window.open(project.github, "_blank");
                         }}
                       >
-                        <Github size={16} className="mr-2" />
+                        <Github size={14} className="mr-1" />
                         Code
                       </Button>
                     )}
                     {project.demo && project.demo !== "#" && project.demo !== "" && (
                       <Button
                         size="sm"
-                        className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white flex-1`}
+                        className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white flex-1 min-w-0`}
                         onClick={(e) => {
                           e.stopPropagation();
                           window.open(project.demo, "_blank");
                         }}
                       >
-                        <ExternalLink size={16} className="mr-2" />
-                        Live Demo
+                        <ExternalLink size={14} className="mr-1" />
+                        Demo
                       </Button>
                     )}
                   </div>
