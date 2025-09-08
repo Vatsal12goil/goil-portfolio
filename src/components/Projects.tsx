@@ -1,8 +1,11 @@
 
 import { ExternalLink, Github, Shield, Globe, Lock, DollarSign, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const Projects = () => {
+  const [flippedCards, setFlippedCards] = useState<{ [key: number]: boolean }>({});
+
   const projects = [
     {
       title: "Vehicle Tracking System",
@@ -12,6 +15,7 @@ const Projects = () => {
       color: "from-blue-500 to-teal-500",
       github: "https://github.com/Vatsal12goil/vehicle-tracking-system",
       demo: "",
+      image: null,
     },
     {
       title: "Trash Trade Marketplace",
@@ -21,6 +25,7 @@ const Projects = () => {
       color: "from-green-400 to-emerald-400",
       github: "https://github.com/Vatsal12goil/TTM2",
       demo: "https://vatsal12goil.github.io/TTM2/",
+      image: "/lovable-uploads/f4072176-287c-48fe-9a7a-2cfcc38a645b.png",
     },
     {
       title: "Weather Application",
@@ -30,6 +35,7 @@ const Projects = () => {
       color: "from-blue-400 to-cyan-400",
       github: "https://github.com/Vatsal12goil/Weather_app",
       demo: "https://weatherapp1216.netlify.app",
+      image: "/lovable-uploads/55c14bb1-a03b-4559-ad8f-f938bf58e159.png",
     },
     {
       title: "Password Strength Checker",
@@ -39,6 +45,7 @@ const Projects = () => {
       color: "from-purple-400 to-indigo-400",
       github: "https://github.com/Vatsal12goil/Password_checker",
       demo: "https://beamish-puppy-d87b95.netlify.app",
+      image: "/lovable-uploads/bf35cf01-d4a0-48ac-bd7c-f1457ae60d6b.png",
     },
     {
       title: "Currency Converter",
@@ -48,6 +55,7 @@ const Projects = () => {
       color: "from-yellow-400 to-orange-400",
       github: "https://github.com/Vatsal12goil/Currency_Con",
       demo: "#",
+      image: "/lovable-uploads/5ce292dc-4d85-43e2-8e42-d26eeab41b1e.png",
     },
     {
       title: "ResQ - Women Safety Platform",
@@ -57,8 +65,13 @@ const Projects = () => {
       color: "from-pink-500 to-rose-500",
       github: "#",
       demo: "#",
+      image: null,
     },
   ];
+
+  const toggleFlip = (index: number) => {
+    setFlippedCards(prev => ({ ...prev, [index]: !prev[index] }));
+  };
 
   return (
     <section id="projects" className="py-20 relative">
@@ -74,49 +87,72 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className="bg-slate-800/30 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 hover:border-slate-600/70 transition-all duration-500 group hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
+              className={`flip-card ${project.image ? 'cursor-pointer' : ''}`}
+              onClick={() => project.image && toggleFlip(index)}
             >
-              <div className="flex items-center mb-6">
-                <div className={`p-3 rounded-lg bg-gradient-to-r ${project.color} mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <project.icon className="text-white" size={24} />
+              <div className={`flip-card-inner ${flippedCards[index] ? 'flipped' : ''}`}>
+                {/* Front Side - Original Design */}
+                <div className="flip-card-front bg-slate-800/30 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 hover:border-slate-600/70 transition-all duration-500 group hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10">
+                  <div className="flex items-center mb-6">
+                    <div className={`p-3 rounded-lg bg-gradient-to-r ${project.color} mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <project.icon className="text-white" size={24} />
+                    </div>
+                    <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+                  </div>
+
+                  <p className="text-slate-300 mb-6 leading-relaxed">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-sm border border-slate-600"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-4">
+                    {project.github && project.github !== "#" && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white flex-1"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.github, "_blank");
+                        }}
+                      >
+                        <Github size={16} className="mr-2" />
+                        Code
+                      </Button>
+                    )}
+                    {project.demo && project.demo !== "#" && project.demo !== "" && (
+                      <Button
+                        size="sm"
+                        className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white flex-1`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.demo, "_blank");
+                        }}
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        Live Demo
+                      </Button>
+                    )}
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
-              </div>
 
-              <p className="text-slate-300 mb-6 leading-relaxed">{project.description}</p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-sm border border-slate-600"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-4">
-                {project.github && project.github !== "#" && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white flex-1"
-                    onClick={() => window.open(project.github, "_blank")}
-                  >
-                    <Github size={16} className="mr-2" />
-                    Code
-                  </Button>
-                )}
-                {project.demo && project.demo !== "#" && project.demo !== "" && (
-                  <Button
-                    size="sm"
-                    className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white flex-1`}
-                    onClick={() => window.open(project.demo, "_blank")}
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    Live Demo
-                  </Button>
+                {/* Back Side - Project Image */}
+                {project.image && (
+                  <div className="flip-card-back bg-slate-800/30 backdrop-blur-xl p-4 rounded-2xl border border-slate-700/50 flex items-center justify-center">
+                    <img 
+                      src={project.image} 
+                      alt={`${project.title} Screenshot`}
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                  </div>
                 )}
               </div>
             </div>
