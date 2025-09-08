@@ -1,8 +1,15 @@
 
 import { ExternalLink, Github, Shield, Globe, Lock, DollarSign, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const Projects = () => {
+  const [flippedCards, setFlippedCards] = useState<{ [key: number]: boolean }>({});
+
+  const handleCardClick = (index: number) => {
+    setFlippedCards(prev => ({ ...prev, [index]: !prev[index] }));
+  };
+
   const projects = [
     {
       title: "Vehicle Tracking System",
@@ -12,6 +19,7 @@ const Projects = () => {
       color: "from-blue-500 to-teal-500",
       github: "https://github.com/Vatsal12goil/vehicle-tracking-system",
       demo: "",
+      image: null,
     },
     {
       title: "Trash Trade Marketplace",
@@ -21,6 +29,7 @@ const Projects = () => {
       color: "from-green-400 to-emerald-400",
       github: "https://github.com/Vatsal12goil/TTM2",
       demo: "https://vatsal12goil.github.io/TTM2/",
+      image: "/lovable-uploads/bb9635a9-7f9d-4ed4-bd29-8e87e1b4819d.png",
     },
     {
       title: "Weather Application",
@@ -30,6 +39,7 @@ const Projects = () => {
       color: "from-blue-400 to-cyan-400",
       github: "https://github.com/Vatsal12goil/Weather_app",
       demo: "https://weatherapp1216.netlify.app",
+      image: "/lovable-uploads/04bbd9c6-7477-465f-aa32-845af5cd728a.png",
     },
     {
       title: "Password Strength Checker",
@@ -39,6 +49,7 @@ const Projects = () => {
       color: "from-purple-400 to-indigo-400",
       github: "https://github.com/Vatsal12goil/Password_checker",
       demo: "https://beamish-puppy-d87b95.netlify.app",
+      image: "/lovable-uploads/86bd189d-39b8-47da-8ed2-1916910a71c8.png",
     },
     {
       title: "Currency Converter",
@@ -48,6 +59,7 @@ const Projects = () => {
       color: "from-yellow-400 to-orange-400",
       github: "https://github.com/Vatsal12goil/Currency_Con",
       demo: "#",
+      image: "/lovable-uploads/23f85a54-a592-4306-b702-04fa39c6ec6d.png",
     },
     {
       title: "ResQ - Women Safety Platform",
@@ -57,6 +69,7 @@ const Projects = () => {
       color: "from-pink-500 to-rose-500",
       github: "#",
       demo: "#",
+      image: null,
     },
   ];
 
@@ -74,49 +87,78 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className="bg-slate-800/30 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 hover:border-slate-600/70 transition-all duration-500 group hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
+              className={`relative h-96 transition-all duration-500 group hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10 ${project.image ? 'cursor-pointer' : ''}`}
+              style={{ perspective: '1000px' }}
+              onClick={() => project.image && handleCardClick(index)}
             >
-              <div className="flex items-center mb-6">
-                <div className={`p-3 rounded-lg bg-gradient-to-r ${project.color} mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <project.icon className="text-white" size={24} />
+              <div
+                className={`absolute inset-0 w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
+                  flippedCards[index] ? 'rotate-y-180' : ''
+                }`}
+              >
+                {/* Front side */}
+                <div className="absolute inset-0 w-full h-full backface-hidden bg-slate-800/30 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 hover:border-slate-600/70"
+            >
+                  <div className="flex items-center mb-6">
+                    <div className={`p-3 rounded-lg bg-gradient-to-r ${project.color} mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <project.icon className="text-white" size={24} />
+                    </div>
+                    <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+                  </div>
+
+                  <p className="text-slate-300 mb-6 leading-relaxed">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-sm border border-slate-600"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-4">
+                    {project.github && project.github !== "#" && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white flex-1"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.github, "_blank");
+                        }}
+                      >
+                        <Github size={16} className="mr-2" />
+                        Code
+                      </Button>
+                    )}
+                    {project.demo && project.demo !== "#" && project.demo !== "" && (
+                      <Button
+                        size="sm"
+                        className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white flex-1`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.demo, "_blank");
+                        }}
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        Live Demo
+                      </Button>
+                    )}
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
-              </div>
 
-              <p className="text-slate-300 mb-6 leading-relaxed">{project.description}</p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-sm border border-slate-600"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-4">
-                {project.github && project.github !== "#" && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white flex-1"
-                    onClick={() => window.open(project.github, "_blank")}
-                  >
-                    <Github size={16} className="mr-2" />
-                    Code
-                  </Button>
-                )}
-                {project.demo && project.demo !== "#" && project.demo !== "" && (
-                  <Button
-                    size="sm"
-                    className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white flex-1`}
-                    onClick={() => window.open(project.demo, "_blank")}
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    Live Demo
-                  </Button>
+                {/* Back side */}
+                {project.image && (
+                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-slate-800/30 backdrop-blur-xl rounded-2xl border border-slate-700/50 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} screenshot`}
+                      className="w-full h-full object-cover rounded-2xl"
+                    />
+                  </div>
                 )}
               </div>
             </div>
