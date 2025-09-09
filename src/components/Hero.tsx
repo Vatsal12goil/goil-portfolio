@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   const openResume = () => {
-    window.open("https://github.com/vatsal12goil/goil-portfolio/blob/main/2201641720115.pdf", "_blank");
+    window.open("https://drive.google.com/file/d/1eK4Gl-1QOn2QoY6ZRG_ANg-v-ZiT9IBJ/view?usp=drivesdk", "_blank");
   };
 
   return (
