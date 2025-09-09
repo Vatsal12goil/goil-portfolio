@@ -124,27 +124,14 @@ const Projects = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white flex-1 min-w-0"
+                        className="border-slate-600 text-slate-900 hover:bg-slate-700 hover:text-white bg-white w-full"
                         onClick={(e) => {
                           e.stopPropagation();
                           window.open(project.github, "_blank");
                         }}
                       >
                         <Github size={14} className="mr-1" />
-                        Code
-                      </Button>
-                    )}
-                    {project.demo && project.demo !== "#" && project.demo !== "" && (
-                      <Button
-                        size="sm"
-                        className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white flex-1 min-w-0`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open(project.demo, "_blank");
-                        }}
-                      >
-                        <ExternalLink size={14} className="mr-1" />
-                        Demo
+                        View Code
                       </Button>
                     )}
                   </div>
@@ -152,12 +139,28 @@ const Projects = () => {
 
                 {/* Back side */}
                 {project.image && (
-                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-slate-800/30 backdrop-blur-xl rounded-2xl border border-slate-700/50 overflow-hidden">
+                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-slate-800/30 backdrop-blur-xl rounded-2xl border border-slate-700/50 overflow-hidden relative">
                     <img
                       src={project.image}
                       alt={`${project.title} screenshot`}
                       className="w-full h-full object-cover rounded-2xl"
                     />
+                    {/* Demo button overlay */}
+                    {project.demo && project.demo !== "#" && project.demo !== "" && (
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <Button
+                          size="sm"
+                          className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white w-full shadow-lg`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.demo, "_blank");
+                          }}
+                        >
+                          <ExternalLink size={14} className="mr-2" />
+                          View Live Demo
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
