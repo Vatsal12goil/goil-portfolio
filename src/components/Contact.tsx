@@ -183,7 +183,7 @@ const Contact = () => {
       <div className="mt-20 pt-8 border-t border-slate-700">
         <div className="text-center">
           <p className="text-slate-400">
-            © 2024 Vatsal Goil. Built with passion and lots of coffee ☕
+            © 2025 Vatsal Goil. Built with passion and lots of coffee ☕
           </p>
         </div>
       </div>
