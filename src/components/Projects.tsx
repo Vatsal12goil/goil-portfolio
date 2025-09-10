@@ -58,7 +58,7 @@ const Projects = () => {
       icon: DollarSign,
       color: "from-yellow-400 to-orange-400",
       github: "https://github.com/Vatsal12goil/Currency_Con",
-      demo: "https://drive.google.com/file/d/1BKZVpcAi4Oztl7Ng5QR6MgXV5EUTNCTY/view?usp=drive_link",
+      demo: "https://drive.google.com/file/d/1Eax70PTSivaXAEm7DSYyR5rYiNpvaMcT/view?usp=drive_link",
       image: "/lovable-uploads/443eef5c-2c22-4be0-81ab-681b3cc6bea5.png",
     },
     {
