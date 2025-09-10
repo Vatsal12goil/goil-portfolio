@@ -1,5 +1,6 @@
 
 import { Code, Shield, Database, Globe } from "lucide-react";
+import LeetCodeTracker from "./LeetCodeTracker";
 
 const Skills = () => {
   const skillCategories = [
@@ -54,7 +55,7 @@ const Skills = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
@@ -85,6 +86,11 @@ const Skills = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* LeetCode Progress Tracker */}
+        <div className="max-w-4xl mx-auto">
+          <LeetCodeTracker />
         </div>
       </div>
     </section>
