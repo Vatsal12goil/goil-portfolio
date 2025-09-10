@@ -10,7 +10,6 @@ const Skills = () => {
       skills: [
         { name: "Python", level: 85 },
         { name: "Java", level: 80 },
-        { name: "JavaScript", level: 75 },
       ],
     },
     {
@@ -18,7 +17,7 @@ const Skills = () => {
       icon: Globe,
       color: "from-purple-400 to-pink-400",
       skills: [
-        { name: "HTML/CSS", level: 90 },
+        { name: "HTML/CSS/JavaScript", level: 90 },
         { name: "Node.js", level: 70 },
         { name: "React", level: 65 },
       ],
@@ -39,8 +38,8 @@ const Skills = () => {
       color: "from-orange-400 to-red-400",
       skills: [
         { name: "DBMS", level: 85 },
-        { name: "Problem Solving", level: 80 },
-        { name: "LeetCode", level: 70 },
+        { name: "SQL", level: 80 },
+        { name: "MongoDB", level: 75 },
       ],
     },
   ];
