@@ -135,8 +135,6 @@ const Hero3DBackground = () => {
         <Stars radius={80} depth={40} count={1500} factor={3} saturation={0} fade speed={1.5} />
         <Particles count={350} />
 
-        <AnimatedKnot />
-
         <WireShape position={[-4.5, 2, -3]} color="#22d3ee" scale={0.9} />
         <WireShape position={[4.5, -1.5, -2]} color="#f472b6" scale={1.1} />
         <WireShape position={[-3, -2.5, -1]} color="#a78bfa" scale={0.6} />
