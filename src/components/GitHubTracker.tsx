@@ -153,7 +153,7 @@ const GitHubTracker = () => {
       </div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
         <div className="bg-slate-900/40 rounded-lg p-3 flex items-center gap-2">
           <BookOpen size={18} className="text-blue-400" />
           <div>
@@ -180,6 +180,20 @@ const GitHubTracker = () => {
           <div>
             <div className="text-white font-bold">{user?.followers ?? 0}</div>
             <div className="text-xs text-slate-400">Followers</div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-br from-orange-500/20 to-red-500/10 border border-orange-500/30 rounded-lg p-3 flex items-center gap-2">
+          <Flame size={18} className="text-orange-400" />
+          <div>
+            <div className="text-white font-bold">{currentStreak}d</div>
+            <div className="text-xs text-slate-400">Current streak</div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-br from-yellow-500/20 to-amber-500/10 border border-yellow-500/30 rounded-lg p-3 flex items-center gap-2">
+          <Trophy size={18} className="text-yellow-400" />
+          <div>
+            <div className="text-white font-bold">{longestStreak}d</div>
+            <div className="text-xs text-slate-400">Longest streak</div>
           </div>
         </div>
       </div>
