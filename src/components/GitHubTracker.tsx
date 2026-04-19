@@ -47,8 +47,9 @@ const GitHubTracker = () => {
 
         if (reposRes.ok) {
           const repos: GitHubRepo[] = await reposRes.json();
-          setTotalStars(repos.reduce((s, r) => s + r.stargazers_count, 0));
-          setTotalForks(repos.reduce((s, r) => s + (r.fork ? 0 : r.forks_count), 0));
+          const owned = repos.filter((r) => !r.fork);
+          setTotalStars(owned.reduce((s, r) => s + r.stargazers_count, 0));
+          setTotalForks(owned.reduce((s, r) => s + r.forks_count, 0));
         }
 
         if (contribRes.ok) {
