@@ -1,7 +1,6 @@
 import { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Stars, MeshDistortMaterial, Torus, Icosahedron, Sphere } from "@react-three/drei";
-import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
 import * as THREE from "three";
 
 // Animated, distorting central torus knot
@@ -145,17 +144,6 @@ const Hero3DBackground = () => {
         <GlowSphere position={[5, 1.5, -1]} color="#f59e0b" size={0.22} />
         <GlowSphere position={[2, -3, 1]} color="#ec4899" size={0.16} />
         <GlowSphere position={[-2, 3, 0]} color="#8b5cf6" size={0.2} />
-
-        <EffectComposer multisampling={0}>
-          <Bloom
-            intensity={0.9}
-            luminanceThreshold={0.2}
-            luminanceSmoothing={0.9}
-            mipmapBlur
-            radius={0.8}
-          />
-          <Vignette eskil={false} offset={0.2} darkness={0.6} />
-        </EffectComposer>
       </Canvas>
     </div>
   );
