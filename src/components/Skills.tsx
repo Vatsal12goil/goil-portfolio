@@ -1,6 +1,6 @@
 
 import { Code, Shield, Database, Globe } from "lucide-react";
-import LeetCodeTracker from "./LeetCodeTracker";
+import GitHubTracker from "./GitHubTracker";
 
 const Skills = () => {
   const skillCategories = [
@@ -88,9 +88,9 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* LeetCode Progress Tracker */}
+        {/* GitHub Live Tracker */}
         <div className="max-w-4xl mx-auto">
-          <LeetCodeTracker />
+          <GitHubTracker />
         </div>
       </div>
     </section>
