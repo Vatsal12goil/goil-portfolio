@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Stars, MeshDistortMaterial, Torus, Icosahedron, Sphere } from "@react-three/drei";
 import * as THREE from "three";
@@ -89,13 +89,32 @@ const Particles = ({ count = 400 }: { count?: number }) => {
   );
 };
 
-// Camera parallax driven by mouse pointer
+// Camera parallax driven by global mouse pointer (works even with pointer-events-none)
 const ParallaxRig = ({ strength = 1.5 }: { strength?: number }) => {
+  const target = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      target.current.x = (e.clientX / window.innerWidth) * 2 - 1;
+      target.current.y = -((e.clientY / window.innerHeight) * 2 - 1);
+    };
+    const handleOrient = (e: DeviceOrientationEvent) => {
+      if (e.gamma == null || e.beta == null) return;
+      target.current.x = Math.max(-1, Math.min(1, e.gamma / 30));
+      target.current.y = Math.max(-1, Math.min(1, e.beta / 45));
+    };
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("deviceorientation", handleOrient);
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("deviceorientation", handleOrient);
+    };
+  }, []);
+
   useFrame((state) => {
-    const { camera, pointer } = state;
-    // pointer.x / pointer.y are normalized -1..1
-    const targetX = pointer.x * strength;
-    const targetY = pointer.y * strength * 0.6;
+    const { camera } = state;
+    const targetX = target.current.x * strength;
+    const targetY = target.current.y * strength * 0.6;
     camera.position.x += (targetX - camera.position.x) * 0.05;
     camera.position.y += (targetY - camera.position.y) * 0.05;
     camera.lookAt(0, 0, 0);
