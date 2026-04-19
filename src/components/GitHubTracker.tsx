@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Github, ExternalLink, Star, GitFork, Users, BookOpen } from "lucide-react";
+import { Github, ExternalLink, Star, GitFork, Users, BookOpen, Flame, Trophy } from "lucide-react";
 
 interface GitHubUser {
   public_repos: number;
@@ -87,6 +87,35 @@ const GitHubTracker = () => {
     weeks.push(contributions.slice(i, i + 7));
   }
 
+  // Calculate streaks
+  const { currentStreak, longestStreak } = (() => {
+    let longest = 0;
+    let running = 0;
+    for (const d of contributions) {
+      if (d.count > 0) {
+        running++;
+        if (running > longest) longest = running;
+      } else {
+        running = 0;
+      }
+    }
+    // Current streak: count back from the most recent day (skip today if 0, since day not over)
+    let current = 0;
+    const today = new Date().toISOString().slice(0, 10);
+    for (let i = contributions.length - 1; i >= 0; i--) {
+      const d = contributions[i];
+      if (d.count > 0) {
+        current++;
+      } else if (d.date === today) {
+        // allow today to be 0 without breaking streak
+        continue;
+      } else {
+        break;
+      }
+    }
+    return { currentStreak: current, longestStreak: longest };
+  })();
+
   if (loading) {
     return (
       <div className="bg-slate-800/30 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50">
@@ -124,7 +153,7 @@ const GitHubTracker = () => {
       </div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
         <div className="bg-slate-900/40 rounded-lg p-3 flex items-center gap-2">
           <BookOpen size={18} className="text-blue-400" />
           <div>
@@ -151,6 +180,20 @@ const GitHubTracker = () => {
           <div>
             <div className="text-white font-bold">{user?.followers ?? 0}</div>
             <div className="text-xs text-slate-400">Followers</div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-br from-orange-500/20 to-red-500/10 border border-orange-500/30 rounded-lg p-3 flex items-center gap-2">
+          <Flame size={18} className="text-orange-400" />
+          <div>
+            <div className="text-white font-bold">{currentStreak}d</div>
+            <div className="text-xs text-slate-400">Current streak</div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-br from-yellow-500/20 to-amber-500/10 border border-yellow-500/30 rounded-lg p-3 flex items-center gap-2">
+          <Trophy size={18} className="text-yellow-400" />
+          <div>
+            <div className="text-white font-bold">{longestStreak}d</div>
+            <div className="text-xs text-slate-400">Longest streak</div>
           </div>
         </div>
       </div>
