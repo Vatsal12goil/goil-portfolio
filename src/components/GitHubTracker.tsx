@@ -68,8 +68,13 @@ const GitHubTracker = () => {
     };
 
     fetchData();
-    const interval = setInterval(fetchData, 30 * 60 * 1000);
-    return () => clearInterval(interval);
+    const interval = setInterval(fetchData, 60 * 1000);
+    const onFocus = () => fetchData();
+    window.addEventListener("focus", onFocus);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("focus", onFocus);
+    };
   }, []);
 
   const levelColor = (level: number) => {
