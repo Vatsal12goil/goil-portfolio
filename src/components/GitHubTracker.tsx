@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Github, ExternalLink, Star, GitFork, Users, BookOpen } from "lucide-react";
+import { Github, ExternalLink, Star, GitFork, Users, BookOpen, Flame, Trophy } from "lucide-react";
 
 interface GitHubUser {
   public_repos: number;
@@ -86,6 +86,35 @@ const GitHubTracker = () => {
   for (let i = 0; i < contributions.length; i += 7) {
     weeks.push(contributions.slice(i, i + 7));
   }
+
+  // Calculate streaks
+  const { currentStreak, longestStreak } = (() => {
+    let longest = 0;
+    let running = 0;
+    for (const d of contributions) {
+      if (d.count > 0) {
+        running++;
+        if (running > longest) longest = running;
+      } else {
+        running = 0;
+      }
+    }
+    // Current streak: count back from the most recent day (skip today if 0, since day not over)
+    let current = 0;
+    const today = new Date().toISOString().slice(0, 10);
+    for (let i = contributions.length - 1; i >= 0; i--) {
+      const d = contributions[i];
+      if (d.count > 0) {
+        current++;
+      } else if (d.date === today) {
+        // allow today to be 0 without breaking streak
+        continue;
+      } else {
+        break;
+      }
+    }
+    return { currentStreak: current, longestStreak: longest };
+  })();
 
   if (loading) {
     return (
