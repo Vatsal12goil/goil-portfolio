@@ -89,10 +89,25 @@ const Particles = ({ count = 400 }: { count?: number }) => {
   );
 };
 
+// Camera parallax driven by mouse pointer
+const ParallaxRig = ({ strength = 1.5 }: { strength?: number }) => {
+  useFrame((state) => {
+    const { camera, pointer } = state;
+    // pointer.x / pointer.y are normalized -1..1
+    const targetX = pointer.x * strength;
+    const targetY = pointer.y * strength * 0.6;
+    camera.position.x += (targetX - camera.position.x) * 0.05;
+    camera.position.y += (targetY - camera.position.y) * 0.05;
+    camera.lookAt(0, 0, 0);
+  });
+  return null;
+};
+
 const Hero3DBackground = () => {
   return (
     <div className="absolute inset-0 -z-0 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 8], fov: 60 }} dpr={[1, 1.5]}>
+        <ParallaxRig strength={1.8} />
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={1.2} color="#60a5fa" />
         <pointLight position={[-10, -8, -5]} intensity={1} color="#ec4899" />
