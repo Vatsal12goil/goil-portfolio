@@ -36,18 +36,20 @@ const GitHubTracker = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const bust = `_=${Date.now()}`;
         const [userRes, reposRes, contribRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${USERNAME}`),
-          fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100`),
-          fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`),
+          fetch(`https://api.github.com/users/${USERNAME}?${bust}`, { cache: "no-store" }),
+          fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&type=owner&${bust}`, { cache: "no-store" }),
+          fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last&${bust}`, { cache: "no-store" }),
         ]);
 
         if (userRes.ok) setUser(await userRes.json());
 
         if (reposRes.ok) {
           const repos: GitHubRepo[] = await reposRes.json();
-          setTotalStars(repos.reduce((s, r) => s + r.stargazers_count, 0));
-          setTotalForks(repos.reduce((s, r) => s + (r.fork ? 0 : r.forks_count), 0));
+          const owned = repos.filter((r) => !r.fork);
+          setTotalStars(owned.reduce((s, r) => s + r.stargazers_count, 0));
+          setTotalForks(owned.reduce((s, r) => s + r.forks_count, 0));
         }
 
         if (contribRes.ok) {
@@ -66,8 +68,13 @@ const GitHubTracker = () => {
     };
 
     fetchData();
-    const interval = setInterval(fetchData, 30 * 60 * 1000);
-    return () => clearInterval(interval);
+    const interval = setInterval(fetchData, 60 * 1000);
+    const onFocus = () => fetchData();
+    window.addEventListener("focus", onFocus);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("focus", onFocus);
+    };
   }, []);
 
   const levelColor = (level: number) => {
