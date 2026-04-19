@@ -36,10 +36,11 @@ const GitHubTracker = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const bust = `_=${Date.now()}`;
         const [userRes, reposRes, contribRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${USERNAME}`),
-          fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100`),
-          fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`),
+          fetch(`https://api.github.com/users/${USERNAME}?${bust}`, { cache: "no-store" }),
+          fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&type=owner&${bust}`, { cache: "no-store" }),
+          fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last&${bust}`, { cache: "no-store" }),
         ]);
 
         if (userRes.ok) setUser(await userRes.json());
